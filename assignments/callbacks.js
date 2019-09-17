@@ -48,7 +48,7 @@ function calculate(arr, cb) {
 function getLength(array) {
   return array.length;
 }
-console.log("Array length: " + calculate(items, getLength));
+console.log("Length: " + calculate(items, getLength));
 
 function last(array) {
   // last passes the last item of the array into the callback.
@@ -58,16 +58,44 @@ console.log("Last: " + calculate(items, last));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x,y);
 }
+
+function mysum (x,y) {
+  return x + y;
+}
+console.log("Sum: " + sumNums(4,5,mysum));
+
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x,y);
 }
+function myMultiplication (x,y) {
+  return x * y;
+}
+console.log("Multiplication: " + myMultiplication(4,5,mysum));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  return cb(item, list);
 }
+
+function findIn (query, array) {
+  array.forEach(function(arrayItem) {
+    if (arrayItem === query) {
+      // console.log("Found it!");
+      return true;
+    } else {
+      // console.log("Sorry, not found.");
+      return false;
+    }
+  });
+}
+
+findIn("Gum", items);
+console.log(contains("Gum", items, findIn))
 
 /* STRETCH PROBLEM */
 
