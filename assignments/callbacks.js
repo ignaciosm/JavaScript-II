@@ -83,19 +83,26 @@ function contains(item, list, cb) {
 }
 
 function findIn (query, array) {
-  array.forEach(function(arrayItem) {
-    if (arrayItem === query) {
-      // console.log("Found it!");
-      return true;
-    } else {
-      // console.log("Sorry, not found.");
-      return false;
-    }
-  });
-}
+  return array.includes(query);
+};
 
-findIn("Gum", items);
-console.log(contains("Gum", items, findIn))
+console.log(contains("Gum", items, findIn));
+
+// Doesn't work
+// function findIn (query, array) {
+//   array.forEach(function(arrayItem) {
+//     if (arrayItem === query) {
+//       // console.log("Found it!");
+//       return true;
+//     } else {
+//       // console.log("Sorry, not found.");
+//       return false;
+//     }
+//   });
+// }
+
+// findIn("Gum", items);
+// console.log(contains("Gum", items, findIn))
 
 /* STRETCH PROBLEM */
 
