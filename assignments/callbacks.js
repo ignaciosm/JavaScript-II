@@ -38,14 +38,23 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
 
-
-function getLength(arr, cb) {
+// My HOF
+function calculate(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr);
 }
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
+// My Callback
+function getLength(array) {
+  return array.length;
 }
+console.log("Array length: " + calculate(items, getLength));
+
+function last(array) {
+  // last passes the last item of the array into the callback.
+  return array[array.length-1]
+}
+console.log("Last: " + calculate(items, last));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
